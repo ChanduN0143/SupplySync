@@ -5,6 +5,16 @@ SupplySync is a supply-chain collaboration and visibility platform designed to h
 
 The platform brings important supplier and purchase-order workflows into one place, helping planners identify exceptions, make informed decisions, and maintain an auditable record of operational changes.
 
+## 🚀 Run SupplySync Locally
+
+**Frontend:** http://localhost:5173
+
+**Backend API:** http://127.0.0.1:8000
+
+**API Documentation:** http://127.0.0.1:8000/docs
+
+> Note: These links work when SupplySync is running locally on your computer.
+
 ---
 
 ## 1. Business Problem
