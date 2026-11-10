@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupplySync | Supplier Control Tower</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand"><span>◆</span> SupplySync</div>
+        <p class="side-label">WORKSPACE</p>
+        <a class="nav active" href="#overview">▦ &nbsp; Overview</a>
+        <a class="nav" href="#changes">⇄ &nbsp; Change Requests</a>
+        <a class="nav" href="#anomalies">⚠ &nbsp; Anomalies</a>
+        <a class="nav" href="#orders">▤ &nbsp; Purchase Orders</a>
+        <a class="nav" href="#audit">◷ &nbsp; Audit Trail</a>
+        <div class="side-footer">SUPPLIER OPERATIONS<br><span>Control Tower v1.0</span></div>
+    </aside>
+
+    <main class="main" id="overview">
+        <header class="topbar">
+            <div>
+                <div class="eyebrow">SUPPLIER COLLABORATION PLATFORM</div>
+                <h1>Supply Control Tower</h1>
+                <p class="muted">Monitor acknowledgements, changes and downstream supply risks.</p>
+            </div>
+            <div class="live"><span></span> SYSTEM LIVE</div>
+        </header>
+
+        <section class="section">
+            <div class="section-heading">
+                <div>
+                    <h2>Operational overview</h2>
+                    <p class="muted">Live metrics from the SupplySync database</p>
+                </div>
+                <button class="secondary" onclick="loadDashboard()">↻ Refresh</button>
+            </div>
+
+            <div class="kpis">
+                <article class="kpi">
+                    <span>Total purchase orders</span>
+                    <strong id="purchase-orders">—</strong>
+                    <small>Purchase order records</small>
+                </article>
+                <article class="kpi">
+                    <span>Suppliers</span>
+                    <strong id="suppliers">—</strong>
+                    <small>Registered suppliers</small>
+                </article>
+                <article class="kpi">
+                    <span>Pending changes</span>
+                    <strong id="pending" class="warning">—</strong>
+                    <small>Awaiting planner decision</small>
+                </article>
+                <article class="kpi">
+                    <span>Approved changes</span>
+                    <strong id="approved" class="good">—</strong>
+                    <small>Accepted change requests</small>
+                </article>
+                <article class="kpi">
+                    <span>Rejected changes</span>
+                    <strong id="rejected" class="bad">—</strong>
+                    <small>Declined change requests</small>
+                </article>
+                <article class="kpi">
+                    <span>Audit events</span>
+                    <strong id="audit-count">—</strong>
+                    <small>Recorded activity events</small>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="changes">
+            <div class="section-heading">
+                <div>
+                    <h2>Supplier change requests</h2>
+                    <p class="muted">Review supplier-proposed changes before they affect inventory.</p>
+                </div>
+                <span class="tag">Approval work queue</span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CHANGE ID</th>
+                            <th>SUPPLIER</th>
+                            <th>PO / LINE</th>
+                            <th>QUANTITY</th>
+                            <th>PRICE</th>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="changes-body">
+                        <tr><td colspan="7">Loading change requests...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" id="anomalies">
+            <div class="section-heading">
+                <div>
+                    <h2>Anomaly detection</h2>
+                    <p class="muted">Exceptions requiring investigation.</p>
+                </div>
+                <span class="tag danger-tag" id="anomaly-count">0 detected</span>
+            </div>
+            <div id="anomaly-list" class="anomaly-list">Loading anomalies...</div>
+        </section>
+
+        <section class="section" id="orders">
+            <div class="section-heading">
+                <div>
+                    <h2>Recent purchase orders</h2>
+                    <p class="muted">Latest purchase order records.</p>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>PO NUMBER</th>
+                            <th>SUPPLIER</th>
+                            <th>ORDER DATE</th>
+                            <th>LINES</th>
+                            <th>REQUESTED QTY</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body">
+                        <tr><td colspan="6">Loading purchase orders...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" id="audit">
+            <div class="section-heading">
+                <div>
+                    <h2>Audit trail</h2>
+                    <p class="muted">Recent system activity and decision history.</p>
+                </div>
+            </div>
+            <div id="audit-list" class="audit-list">Loading audit events...</div>
+        </section>
+
+        <footer>SUPPLYSYNC · SUPPLIER COLLABORATION & SUPPLY VISIBILITY</footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
